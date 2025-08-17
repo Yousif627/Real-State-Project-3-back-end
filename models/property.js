@@ -40,6 +40,10 @@ const propertySchema = new Schema({
         required: true
     },
     createdAt: {
-        type: "created_at"
+        type: Date
     }
 })
+
+const Property = model("Property", propertySchema)
+
+module.exports = Property

@@ -3,7 +3,8 @@ import {model, Schema} from "mongoose";
 
 const areaSchema = new Schema({
     img:{
-
+        type: url,
+        required: true
     },
     name: {
         type: Schema,
