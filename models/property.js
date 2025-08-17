@@ -1,43 +1,43 @@
-import { model, Schema } from "mongoose";
+const { Schema, model }=  require("mongoose");
 
 
 
 const propertySchema = new Schema({
-    area: {
+    area: [{
         type: Schema.Types.ObjectId,
         ref: "Area",
         required: true
-    },
+    }],
     title: {
         type: String,
-        required: true
+        // required: true
     },
     location: {
         type: String,
-        required: true
+        // required: true
     },
     description:{
         type: String
     },
     price:{
         type: Number,
-        required: true
+        // required: true
     },
     size:{
         type: Number,
-        required: true
+        // required: true
     },
     img: {
-        type: url,
-        required: true
+        type: String,
+        // required: true
     },
     bedrooms:{
         type: Number,
-        required: true
+        // required: true
     },
     bathrooms:{
         type: Number,
-        required: true
+        // required: true
     },
     createdAt: {
         type: Date

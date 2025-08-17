@@ -12,16 +12,16 @@ async function crateProperty(req,res) {
 }
 
 
-async function getAllPropertys (req,res){
+async function getAllProperty (req,res){
     try{
-        const allPropertys = await Property.find();
-        res.status(201).json(allPropertys)
+        const allProperty = await Property.find();
+        res.status(201).json(allProperty)
     }catch(error){
-        res.status(500).json('Failed to get all propertys')
+        res.status(500).json('Failed to get all property')
     }
 }
 
-async function popertysDetails (req,res){
+async function propertyDetails (req,res){
     try{
         const propertyDetails = await Property.findById(req.params.id)
 
@@ -55,9 +55,9 @@ async function updateProperty (req,res) {
 
 module.exports =  {
     crateProperty,
-    getAllPropertys,
+    getAllProperty,
     deleteProperty,
     updateProperty,
-    popertysDetails
+    propertyDetails
 
 }

@@ -8,6 +8,14 @@ async function createArea(req,res) {
         res.status(500).json('Failed to create Area')
     }
 }
+async function getArea(req,res) {
+    try{
+        const getArea = await Areas.find();
+        res.status(201).json(getArea);
+    }catch(error){
+        res.status(500).json('Failed to create Area')
+    }
+}
 async function updateArea (req,res){
     try{
         const areaUpdate = await Areas.findByIdAndUpdate(req.params.id)
@@ -19,5 +27,6 @@ async function updateArea (req,res){
 
 module.exports = {
     createArea,
+    getArea,
     updateArea
 }
