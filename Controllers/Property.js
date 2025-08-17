@@ -36,7 +36,7 @@ async function deleteProperty (req,res){
         const propertyDelete = await Property.findByIdAndDelete(req.params.id)
             res.status(201).json(propertyDelete)
         
-    }catch{
+    }catch(error){
         res.status(500).json('Failed to Delete')
 
     }
@@ -45,7 +45,8 @@ async function deleteProperty (req,res){
 async function updateProperty (req,rs) {
     try{
         const propertyUpdate = await Property.findByIdAndUpdate(req.params.id)
-    }catch{
+        res.status(201).json(propertyUpdate)
+    }catch(error){
         res.status(500).json('Failed to Update')
     }
 }
