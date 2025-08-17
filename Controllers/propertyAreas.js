@@ -1,4 +1,4 @@
-const Areas = require('../models/PropertyAreas')
+const Areas = require('../models/area')
 
 async function createArea(req,res) {
     try{
@@ -8,21 +8,16 @@ async function createArea(req,res) {
         res.status(500).json('Failed to create Area')
     }
 }
-
-
-async function getAllAreas(req,res){
-    try{
-        const allAreas = await Areas.find()
-        res.status(201).json(allAreas)
-    }catch(error){
-        res.status(500).json('Failed to get all areas')    
-    }
-}
-
 async function updateArea (req,res){
     try{
-
+        const areaUpdate = await Areas.findByIdAndUpdate(req.params.id)
+        res.status(201).json(areaUpdate)
     }catch(error){
         res.status(500).json('Failed to Update area')
     }
+}
+
+module.exports = {
+    createArea,
+    updateArea
 }
