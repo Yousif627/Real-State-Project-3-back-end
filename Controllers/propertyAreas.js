@@ -1,5 +1,5 @@
 const Areas = require('../models/area')
-
+const {route} = require('../routes/areaRoutes')
 async function createArea(req,res) {
     try{
         const createdArea = await Areas.create(req.body);
