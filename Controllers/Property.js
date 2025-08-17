@@ -42,7 +42,7 @@ async function deleteProperty (req,res){
     }
 }
 
-async function updateProperty (req,rs) {
+async function updateProperty (req,res) {
     try{
         const propertyUpdate = await Property.findByIdAndUpdate(req.params.id)
         res.status(201).json(propertyUpdate)
