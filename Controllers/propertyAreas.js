@@ -1,11 +1,19 @@
 const Areas = require('../models/area')
-
+const {route} = require('../routes/areaRoutes')
 async function createArea(req,res) {
     try{
         const createdArea = await Areas.create(req.body);
         res.status(201).json(createdArea);
     }catch(error){
         res.status(500).json('Failed to create Area')
+    }
+}
+async function getArea(req,res) {
+    try{
+        const getArea = await Areas.find();
+        res.status(201).json(getArea);
+    }catch(error){
+        res.status(500).json('Failed to get Area')
     }
 }
 async function updateArea (req,res){
@@ -19,5 +27,6 @@ async function updateArea (req,res){
 
 module.exports = {
     createArea,
+    getArea,
     updateArea
 }

@@ -5,8 +5,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 
-// const propertyRoutes = require('./routes/propertyRoutes');
-// const areaRoutes = require('./routes/areaRoutes')
+const propertyRoutes = require('./routes/propertyRoutes');
+const areaRoutes = require('./routes/areaRoutes')
 
 dotenv.config();
 const app = express();
@@ -22,9 +22,11 @@ mongoose.connection.on('connected', () => {
 // app.use(cors({ origin: 'http://localhost:5173' })); 
 app.use(express.json());
 app.use(morgan('dev'));
-// app.use('/property', propertyRoutes);
-// app.use('/area',areaRoutes )
+app.use('/property', propertyRoutes);
+app.use('/area',areaRoutes )
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+const port = process.env.PORT 
+
+app.listen(port, () => {
+  console.log('Server is running on port ' + port);
 });
