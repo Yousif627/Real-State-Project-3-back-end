@@ -3,11 +3,11 @@ const { Schema, model }=  require("mongoose");
 
 
 const propertySchema = new Schema({
-    area: [{
+    area: {
         type: Schema.Types.ObjectId,
         ref: "Area",
         required: true
-    }],
+    },
     title: {
         type: String,
         // required: true

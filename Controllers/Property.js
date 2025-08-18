@@ -1,4 +1,5 @@
 const Property = require('../models/property')
+const Area = require("../models/area")
 
 async function crateProperty(req,res) {
     try{
@@ -14,7 +15,7 @@ async function crateProperty(req,res) {
 
 async function getAllProperty (req,res){
     try{
-        const allProperty = await Property.find();
+        const allProperty = await Property.find().populate('area');
         res.status(201).json(allProperty)
     }catch(error){
         res.status(500).json('Failed to get all property')

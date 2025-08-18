@@ -13,7 +13,7 @@ async function getArea(req,res) {
         const getArea = await Areas.find();
         res.status(201).json(getArea);
     }catch(error){
-        res.status(500).json('Failed to create Area')
+        res.status(500).json('Failed to get Area')
     }
 }
 async function updateArea (req,res){

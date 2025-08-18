@@ -7,12 +7,12 @@ const areaSchema = new Schema({
         type: String,
         // required: true
     },
-    location: {
+    Area: {
         type: String,
         required: true
     }
 })
 
-const Areas = model("Areas", areaSchema)
+const Area = model("Area", areaSchema)
 
-module.exports = Areas
+module.exports = Area
