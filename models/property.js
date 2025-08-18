@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+const { Schema, model }=  require("mongoose");
 
 
 
@@ -10,34 +10,34 @@ const propertySchema = new Schema({
     },
     title: {
         type: String,
-        required: true
+        // required: true
     },
     location: {
         type: String,
-        required: true
+        // required: true
     },
     description:{
         type: String
     },
     price:{
         type: Number,
-        required: true
+        // required: true
     },
     size:{
         type: Number,
-        required: true
+        // required: true
     },
     img: {
         type: String,
-        required: true
+        // required: true
     },
     bedrooms:{
         type: Number,
-        required: true
+        // required: true
     },
     bathrooms:{
         type: Number,
-        required: true
+        // required: true
     },
     createdAt: {
         type: Date

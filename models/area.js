@@ -1,17 +1,18 @@
-import {model, Schema} from "mongoose";
+const { Schema, model }=  require("mongoose");
+
 
 
 const areaSchema = new Schema({
     img:{
-        type: url,
-        required: true
+        type: String,
+        // required: true
     },
-    name: {
-        type: Schema,
+    Area: {
+        type: String,
         required: true
     }
 })
 
-const Areas = model("Area", areaSchema)
+const Area = model("Area", areaSchema)
 
-module.exports = Areas
+module.exports = Area
