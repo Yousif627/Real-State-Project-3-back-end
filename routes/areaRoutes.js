@@ -9,6 +9,7 @@ router.post("/new", areaController.createArea)
 
 router.get("/", areaController.getArea)
 
+router.get('/:id', areaController.areaDetails)
 
 router.put('/:id', areaController.updateArea)
 
