@@ -18,9 +18,8 @@ async function crateProperty(req,res) {
 
 async function getAllPropertys (req,res){
     try{
-        const allPropertys = await Property.find();
-        res.status(201).json(allPropertys)
-        
+        const allProperty = await Property.find({area:req.params.areaId}).populate('area');
+        res.status(201).json(allProperty)
     }catch(error){
         res.status(500).json('Failed to get all propertys')
     }
@@ -35,7 +34,6 @@ async function propertyDetails (req,res){
         res.status(500).json('Failed to get Details')
     }
 }
-
 async function deleteProperty (req,res){
     try{
         const propertyDelete = await Property.findByIdAndDelete(req.params.id)

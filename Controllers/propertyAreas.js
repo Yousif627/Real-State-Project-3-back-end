@@ -17,6 +17,15 @@ async function getArea(req,res) {
         res.status(500).json('Failed to get Area')
     }
 }
+async function areaDetails (req,res){
+    try{
+        const areaDetails = await Areas.findById(req.params.id)
+
+        res.status(201).json(areaDetails)
+    }catch(error){
+        res.status(500).json('Failed to get Details')
+    }
+}
 async function updateArea (req,res){
     try{
         const areaUpdate = await Areas.findByIdAndUpdate(req.params.id)
@@ -29,5 +38,6 @@ async function updateArea (req,res){
 module.exports = {
     createArea,
     getArea,
+    areaDetails,
     updateArea
 }
