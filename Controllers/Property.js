@@ -1,24 +1,27 @@
-const Property = require('../models/property')
-const Area = require("../models/area")
+const Property = require('../models/Property')
+const Area = require('../models/area')
+
 
 async function crateProperty(req,res) {
     try{
+        console.log(req.body)
         const CreateProperty = await Property.create(req.body);
         res.status(201).json(CreateProperty);
 
     }catch(error){
-        res.status(500).json('Failed to create Property');
+        res.status(500).json('Failed to create Property in Backend');
+        console.log(error)
     }
 
 }
 
 
-async function getAllProperty (req,res){
+async function getAllPropertys (req,res){
     try{
-        const allProperty = await Property.find({area:req.params.areaId}).populate('area');
+        const allProperty = await Property.find().populate('area');
         res.status(201).json(allProperty)
     }catch(error){
-        res.status(500).json('Failed to get all property')
+        res.status(500).json('Failed to get all propertys')
     }
 }
 
@@ -44,7 +47,7 @@ async function deleteProperty (req,res){
 
 async function updateProperty (req,res) {
     try{
-        const propertyUpdate = await Property.findByIdAndUpdate(req.params.id)
+        const propertyUpdate = await Property.findByIdAndUpdate(req.params.id, req.body)
         res.status(201).json(propertyUpdate)
     }catch(error){
         res.status(500).json('Failed to Update')
@@ -55,9 +58,8 @@ async function updateProperty (req,res) {
 
 module.exports =  {
     crateProperty,
-    getAllProperty,
+    getAllPropertys,
     deleteProperty,
     updateProperty,
     propertyDetails
-
 }
